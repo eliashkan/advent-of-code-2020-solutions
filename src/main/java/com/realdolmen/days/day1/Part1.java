@@ -1,4 +1,4 @@
-package com.realdolmen.days;
+package com.realdolmen.days.day1;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Day1 {
+public class Part1 {
 
     public static void main(String[] args) {
 
@@ -24,10 +24,10 @@ public class Day1 {
                         .map(Integer::parseInt)
                         .collect(Collectors.toSet());
             }
-            for (int i :
-                    integerSet) {
-                if (integerSet.contains(2020 - i)) {
-                    System.out.println(i * (2020 - i));
+            for (int i : integerSet) {
+                int complement = 2020 - i;
+                if (integerSet.contains(complement)) {
+                    System.out.println(i * complement);
                 }
             }
 
