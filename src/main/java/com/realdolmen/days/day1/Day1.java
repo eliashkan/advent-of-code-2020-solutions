@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Part1 {
+public class Day1 {
 
     public static void main(String[] args) {
 
@@ -16,7 +16,7 @@ public class Part1 {
             Set<Integer> integerSet;
             try (Stream<String> lines = new BufferedReader(
                     new FileReader(
-                            new File("src/main/resources/input")
+                            new File("src/main/resources/input-day-1")
                     )
             ).lines()) {
 
@@ -28,6 +28,16 @@ public class Part1 {
                 int complement = 2020 - i;
                 if (integerSet.contains(complement)) {
                     System.out.println(i * complement);
+                }
+            }
+
+            for (int firstCursor : integerSet) {
+                int complement = 2020 - firstCursor;
+                for (int secondCursor : integerSet) {
+                    int secondComplement = complement - secondCursor;
+                    if (integerSet.contains(secondComplement)) {
+                        System.out.println(firstCursor * secondCursor * secondComplement);
+                    }
                 }
             }
 
