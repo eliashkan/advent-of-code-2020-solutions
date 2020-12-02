@@ -8,9 +8,8 @@ import java.util.stream.Stream;
 
 public class Day2 {
 
-    private static String[] splitOverColon;
-    private static String[] splitRules;
-    private static int result;
+    private static int result1 = 0;
+    private static int result2 = 0;
 
     public static void main(String[] args) {
 
@@ -20,24 +19,32 @@ public class Day2 {
                 )
         ).lines()) {
 
-            // input prep
             lines.forEach(s -> {
-                splitOverColon = s.split(":");
-                splitRules = splitOverColon[0].split("[- ]");
+                // input prep
+                String[] splitOverColon = s.split(":");
+                String[] splitRules = splitOverColon[0].split("[- ]");
+                int min = Integer.parseInt(splitRules[0]);
+                int max = Integer.parseInt(splitRules[1]);
+                char match = splitRules[2].charAt(0);
+                char[] password = splitOverColon[1].toCharArray();
+                int charCount = 0;
+
+                // first part
+                for (char c : password) {
+                    if (c == match) charCount++;
+                }
+                if (charCount >= min && charCount <= max) {
+                    result1++;
+                }
+
+                // second part
+                if (password[min - 1] == match ^ password[max - 1] == match) {
+                    result2++;
+                }
             });
 
-            // first part
-            int charCount = 0;
-            for (char c : splitOverColon[1].toCharArray()) {
-                if (c == splitRules[2].charAt(0)) charCount++;
-            }
-            if (charCount >= Integer.parseInt(splitRules[0])
-                    && charCount <= Integer.parseInt(splitRules[1])) {
-                result++;
-            }
-            System.out.println(result);
-
-            // second part
+            System.out.println(result1);
+            System.out.println(result2);
 
 
         } catch (FileNotFoundException e) {
