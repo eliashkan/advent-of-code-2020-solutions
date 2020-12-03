@@ -73,7 +73,7 @@ public class TobogganTrajectory {
 			if (y >= row.size()) y = y - row.size();
 		}
 		
-		System.out.printf("For slope %d and speed %d you encounter %d trees\n", slope, speed, counter);
+		System.out.printf("For slope %d and speed %d you encounter %d trees%n", slope, speed, counter);
 		
 		return counter;
 	}
