@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class Day2 {
+public class PasswordPhilosophy {
 
     private static int result1 = 0;
     private static int result2 = 0;
