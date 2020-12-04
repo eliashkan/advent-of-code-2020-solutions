@@ -43,10 +43,10 @@ public class TobogganTrajectory {
 			map.put(7, 1);
 			map.put(1, 2);
 			
-			int result = map
+			long result = map
 					.entries()
 					.stream()
-					.mapToInt(entry -> bombTheHill(rows, entry.getKey(), entry.getValue()))
+					.mapToLong(entry -> bombTheHill(rows, entry.getKey(), entry.getValue()))
 					.reduce(1, (a, b) -> a * b);
 			
 			System.out.printf("The answer to part 2 is: %d", result);
