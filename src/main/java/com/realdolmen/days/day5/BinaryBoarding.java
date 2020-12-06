@@ -27,7 +27,7 @@ public class BinaryBoarding {
 						return id;
 					})
 					.max(comparingInt(o -> o));
-			System.out.println(max.orElse(-1));
+			System.out.println("greatest id in input: " + max.orElse(-1));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -42,7 +42,7 @@ public class BinaryBoarding {
 		int actual = ids.stream().mapToInt(i -> i).sum();
 		int missingId = expected - actual;
 		
-		System.out.println("result: " + missingId);
+		System.out.println("our missing ticket: " + missingId);
 		
 	}
 	
