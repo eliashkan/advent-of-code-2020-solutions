@@ -55,7 +55,7 @@ public class CustomCustoms {
 	}
 	
 	private static Integer countCommonCharacters(String[] list) {
-		if (list.length == 1) return list.length;
+		if (list.length == 1) return list[0].length();
 		int counter = 0;
 		for (char c : list[0].toCharArray()) {
 			boolean contains = IntStream.range(1, list.length).allMatch(i -> list[i].contains(valueOf(c)));
